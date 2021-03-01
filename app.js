@@ -3,6 +3,26 @@ var linkCategory  = document.querySelector ('#linkCategory');
 var linkTitle  = document.querySelector ('#linkTitle');
 var linkUrl  = document.querySelector ('#linkUrl');
 const submitButton = document.querySelector ('#submitButton');
+
+const addBtn = document.querySelector ('#addBtn')
+const cancelButton = document.querySelector ('#cancelButton');
+const addLinkPanel = document.querySelector ('#addLinkPanel');
+
+addBtn.addEventListener ('click', (event) => {
+    showFormPanel ();
+}); 
+cancelButton.addEventListener ('click', (event) => {
+    event.preventDefault ();
+    hideFormPanel ();
+});
+
+function showFormPanel () {
+    addLinkPanel.classList.remove ('hidden');
+}
+function hideFormPanel () {
+    addLinkPanel.classList.add ('hidden');
+}
+
 let linkCategories = [];
 let links = [];
 console.log (this); // referring to window object basically global object
@@ -30,6 +50,8 @@ submitButton.addEventListener ('click', (event) => {
     linkCategories = [];
 
     displayLinkCategories ();
+
+    hideFormPanel ();
 });
 
 linkCategory.addEventListener ('keydown', (event) => {
